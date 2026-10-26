@@ -1,0 +1,23 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Constellation — Motion Studio Nº 05</title>
+<style>/*FONTS*/
+html,body{margin:0;height:100%;background:radial-gradient(circle at 50% 45%,#1A2246 0%,#0B1020 65%);overflow:hidden;cursor:none;color:#F4EFE6;font-family:Inter,system-ui,sans-serif}
+#tsp{position:fixed;inset:0}
+.stage{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none}
+#title{font:700 clamp(48px,8.4vw,168px)/1 'Space Grotesk',sans-serif;letter-spacing:-.035em;white-space:nowrap}
+#title .ch{display:inline-block;opacity:0;will-change:transform}#title .sp{display:inline-block;width:.28em}
+#sub{margin-top:22px;font:500 clamp(12px,1.05vw,20px) 'JetBrains Mono',monospace;letter-spacing:.2em;color:#9AA3C7;opacity:0}
+#hint{position:fixed;bottom:48px;left:50%;margin-left:-150px;width:300px;text-align:center;font:500 15px 'JetBrains Mono',monospace;letter-spacing:.16em;color:#0B1020;background:#FFC857;border-radius:999px;padding:12px 0;opacity:0}
+.corner{position:fixed;top:40px;font:500 15px 'JetBrains Mono',monospace;letter-spacing:.16em;color:rgba(244,239,230,.6)}
+#ring{position:fixed;left:-22px;top:-22px;width:44px;height:44px;border:2px solid #FFC857;border-radius:50%;pointer-events:none;}
+#cur{position:fixed;left:0;top:0;width:22px;height:22px;pointer-events:none;display:none;z-index:9}
+.ripple{position:fixed;left:-30px;top:-30px;width:60px;height:60px;border:6px solid #FF6B5B;border-radius:50%;pointer-events:none}
+</style></head><body>
+<div id="tsp"></div>
+<div class="corner" style="left:48px">MOTION STUDIO · Nº 05</div><div class="corner" style="right:48px">TSPARTICLES + ANIME.JS</div>
+<div class="stage"><div id="title">Touch the stars</div><div id="sub">MOVE TO GATHER · CLICK TO SPARK</div></div>
+<div id="hint">MOVE · CLICK</div>
+<div id="ring"></div>
+<svg id="cur" viewBox="0 0 22 22"><path d="M2 1 L2 18 L6.5 13.8 L9.6 20.5 L12.6 19.2 L9.6 12.6 L15.6 12.6 Z" fill="#F4EFE6" stroke="#0B1020" stroke-width="1.4" stroke-linejoin="round"/></svg>
+<script>if (location.search.includes('capture')) document.getElementById('cur').style.display = 'block';</script>
+<script>/*BUNDLE*/</script></body></html>

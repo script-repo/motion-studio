@@ -17,6 +17,14 @@ Grok Bot agent that works as a motion designer and creative coder. Give it a bri
 5. Delivers real files: H.264 MP4 with captions (burned in or sidecar), self-contained interactive HTML, PNG stills and contact sheets
 6. Shows a still or short preview before calling it done, then offers one idea for the next iteration
 
+## Examples
+
+Ten short pieces rendered on a CPU-only build host, each combining several tools from the stack: a voiced Remotion explainer, a p5.js flow-field loop, a Three.js planet, Rapier physics letters, an interactive tsParticles toy, Paper.js line art, GL transitions, an audio-reactive shader, HyperFrames UI springs and a bar-chart race. Each one comes with its source and a `render.sh` to rebuild it.
+
+[![Contact sheet of the ten examples](examples/media/contact-sheet.png)](examples/README.md)
+
+See the **[examples gallery](examples/README.md)**.
+
 ## Repo layout
 
 | Path | Purpose |
@@ -28,6 +36,7 @@ Grok Bot agent that works as a motion designer and creative coder. Give it a bri
 | `skills/render-and-deliver.md` | FFmpeg encode settings, faster-whisper captions, contact sheets |
 | `skills/build-host-setup.md` | Idempotent clone/install outline under one workspace folder, pinned versions |
 | `templates/brief.md` | Brief template to fill in or hand to the bot |
+| `examples/` | Ten example pieces with source, render scripts and finished media ([gallery](examples/README.md)) |
 | `templates/file-naming.md` | File and folder naming convention for shots, renders and deliverables |
 | `LICENSE` | MIT (this repo only; each upstream tool keeps its own license) |
 

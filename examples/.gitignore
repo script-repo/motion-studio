@@ -1,0 +1,38 @@
+# dependencies, environments, caches, downloaded browsers and model weights
+node_modules
+.venv*/
+venv/
+__pycache__/
+.cache/
+.hyperframes/
+*.safetensors
+*.pt
+*.bin
+*.onnx
+# build and render outputs (rebuilt by each render.sh); finished media lives in media/
+bundle.js
+*-bundle.js
+out/
+audio/
+*.wav
+*.log
+/*/[0-9][0-9]-*.mp4
+/*/[0-9][0-9]-*.png
+/*/[0-9][0-9]-*.svg
+/*/[0-9][0-9]-*.html
+# generated data
+01-registry-explainer/public/
+10-data-race/public/
+03-lowpoly-planet/planet.glb
+03-lowpoly-planet/planet-glb.js
+03-lowpoly-planet/gltf-transform-report.txt
+04-physics-letters/sim.json
+04-physics-letters/sim-data.js
+07-gl-transitions/stills/
+07-gl-transitions/stills-data.js
+08-audio-reactive/fft-data.js
+09-ui-springs/hf/lib/
+09-ui-springs/hf/assets/
+# finished media is committed
+!/media/
+!/media/*

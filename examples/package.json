@@ -1,0 +1,40 @@
+{
+  "name": "motion-studio-examples",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Ten example pieces built with the Motion Studio open-source motion stack",
+  "license": "MIT",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "setup:browser": "playwright-core install chromium && hyperframes browser ensure",
+    "contact-sheet": "./lib/contact-sheet.sh media/contact-sheet.png"
+  },
+  "dependencies": {
+    "@dimforge/rapier2d-compat": "0.21.0",
+    "@fontsource/inter": "5.3.0",
+    "@fontsource/jetbrains-mono": "5.3.0",
+    "@fontsource/space-grotesk": "5.3.0",
+    "@gltf-transform/core": "4.5.1",
+    "@gltf-transform/extensions": "4.5.1",
+    "@gltf-transform/functions": "4.5.1",
+    "@remotion/cli": "4.0.539",
+    "@remotion/renderer": "4.0.539",
+    "@tsparticles/engine": "4.5.0",
+    "animejs": "4.5.0",
+    "esbuild": "0.28.2",
+    "gl-transitions": "2.0.0",
+    "hyperframes": "0.8.203",
+    "ogl": "1.0.11",
+    "p5": "2.3.4",
+    "paper": "0.16.0",
+    "pixi.js": "8.22.0",
+    "playwright-core": "1.64.1",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "remotion": "4.0.539",
+    "three": "0.186.1",
+    "tone": "15.1.22",
+    "tsparticles": "4.5.0"
+  }
+}

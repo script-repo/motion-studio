@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en" data-resolution="landscape">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<!-- 09 — UI micro-interactions: Anime.js v4 spring timeline, rendered by HyperFrames (anime adapter via window.__hfAnime). -->
+<script src="lib/anime.umd.min.js"></script>
+<style>
+@font-face{font-family:'SG';font-weight:700;src:url(assets/fonts/space-grotesk-latin-700-normal.woff2) format('woff2')}
+@font-face{font-family:'SG';font-weight:500;src:url(assets/fonts/space-grotesk-latin-500-normal.woff2) format('woff2')}
+@font-face{font-family:'IN';font-weight:500;src:url(assets/fonts/inter-latin-500-normal.woff2) format('woff2')}
+@font-face{font-family:'IN';font-weight:600;src:url(assets/fonts/inter-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'IN';font-weight:700;src:url(assets/fonts/inter-latin-700-normal.woff2) format('woff2')}
+@font-face{font-family:'JB';font-weight:500;src:url(assets/fonts/jetbrains-mono-latin-500-normal.woff2) format('woff2')}
+:root{--ink:#0B1020;--cream:#F4EFE6;--coral:#FF6B5B;--amber:#FFC857;--teal:#2EC4B6;--violet:#7B61FF;--mist:#8A90AD}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden;background:var(--cream)}
+#root{position:relative;width:1920px;height:1080px;font-family:'IN',sans-serif;color:var(--ink);
+  background-image:radial-gradient(rgba(11,16,32,.09) 1.4px,transparent 1.5px);background-size:44px 44px}
+.hud{position:absolute;top:70px;left:120px;right:120px;display:flex;justify-content:space-between;font:500 19px 'JB';letter-spacing:.16em;color:rgba(11,16,32,.6)}
+h1{position:absolute;left:116px;top:118px;font:700 84px 'SG';letter-spacing:-.035em}
+h1 span{color:var(--violet)}
+.row{position:absolute;left:120px;right:120px;top:330px;display:flex;gap:48px}
+.card{flex:1;height:470px;background:#fff;border-radius:32px;box-shadow:0 30px 60px -20px rgba(11,16,32,.22),0 0 0 1px rgba(11,16,32,.05);position:relative;padding:40px;display:flex;flex-direction:column}
+.k{font:500 15px 'JB';letter-spacing:.16em;color:var(--mist)}
+.t{font:600 30px 'IN';letter-spacing:-.02em;margin-top:8px}
+.stage{flex:1;display:flex;align-items:center;justify-content:center;position:relative}
+/* toggle */
+.track{width:184px;height:100px;border-radius:50px;background:#E4E2EC;position:relative}
+.trackOn{position:absolute;inset:0;border-radius:50px;background:var(--violet);opacity:0}
+.knob{position:absolute;left:10px;top:10px;width:80px;height:80px;border-radius:40px;background:#fff;box-shadow:0 8px 18px rgba(11,16,32,.25)}
+.swap{height:30px;overflow:hidden;font:600 22px 'IN';margin-top:26px;text-align:center}
+.swap div{height:30px}
+/* cart */
+.btn{width:280px;height:84px;border-radius:24px;background:var(--coral);color:#fff;font:600 25px 'IN';position:relative;overflow:hidden;box-shadow:0 16px 30px -10px rgba(255,107,91,.7)}
+.btn .l{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:12px}
+.cart{position:absolute;right:40px;top:40px;width:56px;height:56px;border-radius:18px;background:var(--cream);display:flex;align-items:center;justify-content:center}
+.badge{position:absolute;right:-8px;top:-8px;width:30px;height:30px;border-radius:15px;background:var(--ink);color:#fff;font:700 15px 'IN';display:flex;align-items:center;justify-content:center;transform:scale(0)}
+/* like */
+.heart{position:relative;width:150px;height:150px}
+.heart svg{position:absolute;inset:0}
+.dot{position:absolute;left:67px;top:67px;width:16px;height:16px;border-radius:8px;opacity:0}
+.count{display:flex;gap:2px;justify-content:center;font:700 26px 'IN';margin-top:18px;height:32px;overflow:hidden}
+.count .roll div{height:32px}
+/* tabs */
+.seg{width:100%;height:64px;border-radius:20px;background:#EFEDF5;position:relative;display:flex}
+.seg b{flex:1;z-index:1;display:flex;align-items:center;justify-content:center;font:600 19px 'IN';color:rgba(11,16,32,.55)}
+.pill{position:absolute;left:6px;top:6px;height:52px;border-radius:15px;background:#fff;box-shadow:0 6px 14px rgba(11,16,32,.14)}
+.bars{display:flex;gap:14px;align-items:flex-end;height:170px;margin-top:30px;width:100%;justify-content:center}
+.bars i{display:block;width:36px;border-radius:10px;background:var(--teal);height:100px;transform-origin:bottom}
+.foot{position:absolute;left:0;right:0;bottom:84px;text-align:center;font:500 22px 'JB';letter-spacing:.2em;color:rgba(11,16,32,.55);opacity:0}
+#cursor{position:absolute;left:0;top:0;width:44px;height:44px;z-index:9;filter:drop-shadow(0 4px 8px rgba(11,16,32,.3))}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="8" data-width="1920" data-height="1080">
+  <div id="hud" class="hud clip" data-start="0" data-duration="8"><span>MOTION STUDIO · Nº 09</span><span>ANIME.JS SPRINGS · HYPERFRAMES</span></div>
+  <h1 class="clip" id="title" data-start="0" data-duration="8">Springs, <span>not timers.</span></h1>
+  <div id="cards" class="row clip" data-start="0" data-duration="8">
+    <div class="card" id="c1"><div class="k">01 · TOGGLE</div><div class="t">Focus mode</div>
+      <div class="stage" style="flex-direction:column"><div class="track"><div class="trackOn"></div><div class="knob"></div></div>
+        <div class="swap"><div id="sw">Off<br>On</div></div></div></div>
+    <div class="card" id="c2"><div class="k">02 · BUTTON</div><div class="t">Add to cart</div>
+      <div class="cart"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0B1020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 11h11L21 8H6.2"/><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg><div class="badge">1</div></div>
+      <div class="stage"><div class="btn"><div class="l" id="l1">Add to cart</div><div class="l" id="l2" style="transform:translateY(90px)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Added</div></div></div></div>
+    <div class="card" id="c3"><div class="k">03 · REACTION</div><div class="t">Like</div>
+      <div class="stage" style="flex-direction:column"><div class="heart">
+        <svg viewBox="0 0 24 24"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.4 8 3.6 4.5 7 4.5c2.1 0 3.6 1.2 5 3 1.4-1.8 2.9-3 5-3 3.4 0 5.6 3.5 4.3 6.8-1.8 4.6-9.3 9.2-9.3 9.2z" fill="none" stroke="#0B1020" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 24 24" id="hf"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.4 8 3.6 4.5 7 4.5c2.1 0 3.6 1.2 5 3 1.4-1.8 2.9-3 5-3 3.4 0 5.6 3.5 4.3 6.8-1.8 4.6-9.3 9.2-9.3 9.2z" fill="#FF6B5B"/></svg>
+        <div class="dot" style="background:#FF6B5B"></div><div class="dot" style="background:#FFC857"></div><div class="dot" style="background:#7B61FF"></div><div class="dot" style="background:#2EC4B6"></div><div class="dot" style="background:#FF6B5B"></div><div class="dot" style="background:#FFC857"></div><div class="dot" style="background:#7B61FF"></div><div class="dot" style="background:#2EC4B6"></div>
+      </div><div class="count"><span>12</span><span class="roll"><div id="roll">8<br>9</div></span></div></div></div>
+    <div class="card" id="c4"><div class="k">04 · SEGMENTED</div><div class="t">Activity</div>
+      <div class="stage" style="flex-direction:column;justify-content:flex-start;padding-top:34px"><div class="seg"><div class="pill"></div><b>Day</b><b>Week</b><b>Month</b></div>
+        <div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
+  </div>
+  <div id="foot" class="foot clip" data-start="0" data-duration="8">EVERY MOTION HERE IS A PHYSICAL SPRING · STIFFNESS · DAMPING · MASS</div>
+  <div id="cursor" class="clip" data-start="0" data-duration="8"><svg width="44" height="44" viewBox="0 0 22 22"><path d="M2 1 L2 18 L6.5 13.8 L9.6 20.5 L12.6 19.2 L9.6 12.6 L15.6 12.6 Z" fill="#0B1020" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/></svg></div>
+</div>
+<script>
+const { createTimeline, createSpring, stagger, utils } = anime;
+const S = (stiffness, damping, mass = 1) => createSpring({ stiffness, damping, mass });
+const snappy = S(260, 16), bouncy = S(180, 9), soft = S(120, 14);
+// initial states
+utils.set('.card', { y: 90, opacity: 0 }); utils.set('#title', { y: 40, opacity: 0 }); utils.set('#hf', { scale: 0 }); utils.set('.pill', { width: 0 });
+utils.set('#cursor', { x: 1980, y: 1120 });
+const seg = document.querySelector('.seg').getBoundingClientRect(); const segW = (seg.width - 12) / 3;
+utils.set('.pill', { width: segW });
+const H = { day: [60, 110, 80, 140, 70, 120], week: [120, 90, 150, 110, 160, 130], month: [150, 160, 120, 165, 140, 170] };
+utils.set('.bars i', { scaleY: (el, i) => H.day[i] / 100 });
+const center = (sel, dx = 0, dy = 0) => { const r = document.querySelector(sel).getBoundingClientRect(); return { x: r.left + r.width / 2 + dx, y: r.top + r.height / 2 + dy - 90 }; }; // cards start 90px low (intro offset)
+const tl = createTimeline({ autoplay: false, defaults: { ease: snappy } });
+// intro
+tl.add('#title', { y: 0, opacity: 1, duration: 900, ease: soft }, 0)
+  .add('.card', { y: 0, opacity: 1, duration: 1000, ease: S(170, 13), delay: stagger(90) }, 150);
+const move = (sel, at, dx = 0, dy = 0) => { const p = center(sel, dx, dy); tl.add('#cursor', { x: p.x - 6, y: p.y - 4, duration: 620, ease: 'inOutCubic' }, at); };
+const press = (sel, at) => { tl.add('#cursor', { scale: [{ to: 0.82, duration: 90, ease: 'outQuad' }, { to: 1, duration: 420, ease: bouncy }] }, at); tl.add(sel, { scale: [{ to: 0.93, duration: 90, ease: 'outQuad' }, { to: 1, duration: 600, ease: bouncy }] }, at); };
+// 1 toggle on
+move('.track', 700, 30, 10); press('.track', 1320);
+tl.add('.knob', { x: 84, duration: 700, ease: bouncy }, 1380).add('.trackOn', { opacity: 1, duration: 300, ease: 'outQuad' }, 1380).add('#sw', { y: -30, duration: 500, ease: snappy }, 1400)
+  .add('.knob', { scaleX: [{ to: 1.25, duration: 120 }, { to: 1, duration: 500, ease: bouncy }] }, 1380);
+// 2 add to cart
+move('.btn', 1500); press('.btn', 2120);
+tl.add('#l1', { y: -90, duration: 450, ease: snappy }, 2180).add('#l2', { y: 0, duration: 650, ease: bouncy }, 2220)
+  .add('.btn', { backgroundColor: '#2EC4B6', duration: 300, ease: 'outQuad' }, 2180)
+  .add('.badge', { scale: [0, 1], duration: 800, ease: S(300, 10) }, 2450).add('.cart', { rotate: [{ to: -12, duration: 120 }, { to: 0, duration: 700, ease: bouncy }] }, 2450);
+// 3 like
+move('.heart', 2400); press('.heart', 3020);
+tl.add('#hf', { scale: [0, 1], duration: 900, ease: S(240, 8) }, 3080)
+  .add('.dot', { x: (el, i) => Math.cos(i / 8 * 6.283) * 110, y: (el, i) => Math.sin(i / 8 * 6.283) * 110, opacity: [{ to: 1, duration: 60 }, { to: 0, duration: 500, delay: 260, ease: 'outQuad' }], scale: [1.2, 0.2], duration: 820, ease: 'outExpo' }, 3080)
+  .add('#roll', { y: -32, duration: 600, ease: bouncy }, 3150);
+// 4 tabs: Week then Month
+const tab = (i, at) => { const b = document.querySelectorAll('.seg b')[i]; move('.seg b:nth-child(' + (i + 2) + ')', at - 620); press('.seg', at);
+  tl.add('.pill', { x: segW * i, duration: 750, ease: bouncy }, at + 40).add('.bars i', { scaleY: (el, k) => H[['day', 'week', 'month'][i]][k] / 100, duration: 900, ease: S(200, 11), delay: stagger(45) }, at + 60)
+    .add('.bars i', { backgroundColor: ['#2EC4B6', '#7B61FF', '#FF6B5B'][i], duration: 300, ease: 'outQuad' }, at + 60); };
+tab(1, 4300); tab(2, 5250);
+// 5 toggle back off, then outro
+move('.track', 5650, 30, 10); press('.track', 6270);
+tl.add('.knob', { x: 0, duration: 700, ease: bouncy }, 6330).add('.trackOn', { opacity: 0, duration: 300, ease: 'outQuad' }, 6330).add('#sw', { y: 0, duration: 500, ease: snappy }, 6350)
+  .add('.foot', { opacity: [0, 1], y: [16, 0], duration: 700, ease: soft }, 6600)
+  .add('#cursor', { x: 1990, y: 1130, duration: 900, ease: 'inCubic' }, 6900)
+  .add('.knob', { x: 0, duration: 1 }, 7999);
+window.__timelines = window.__timelines || {};
+window.__hfAnime = window.__hfAnime || []; window.__hfAnime.push(tl);
+tl.seek(0);
+</script>
+</body>
+</html>

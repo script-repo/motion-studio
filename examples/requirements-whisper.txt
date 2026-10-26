@@ -1,0 +1,3 @@
+# Caption timing for 01 (faster-whisper, CPU int8)
+faster-whisper==1.2.1
+numpy>=2

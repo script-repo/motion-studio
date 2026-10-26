@@ -1,0 +1,12 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../lib/fonts.css">
+<style>html,body{margin:0;overflow:hidden;background:#05060E}canvas{display:block}
+.hud{position:absolute;left:64px;right:64px;font:500 17px 'JetBrains Mono';letter-spacing:.16em;color:rgba(244,239,230,.72);display:flex;justify-content:space-between}
+.top{top:56px}.bot{bottom:56px;align-items:flex-end}
+h1{font:700 60px 'Space Grotesk';letter-spacing:-.02em;margin:0 0 10px;color:#F4EFE6}
+.m{display:flex;gap:18px;align-items:flex-end}.m div{display:flex;flex-direction:column;align-items:center;gap:8px}
+.m i{display:block;width:10px;height:90px;background:rgba(244,239,230,.12);border-radius:5px;position:relative;overflow:hidden}
+.m i b{position:absolute;left:0;right:0;bottom:0;border-radius:5px}</style></head>
+<body><div class="hud top"><span>MOTION STUDIO · Nº 08</span><span id="clock">00:00.0</span></div>
+<div class="hud bot"><div><h1>Signal Bloom</h1>TONE.JS → FFT → OGL · 120 BPM</div>
+<div class="m"><div><i><b id="mb" style="background:#FF6B5B"></b></i>LO</div><div><i><b id="mm" style="background:#FFC857"></b></i>MID</div><div><i><b id="mh" style="background:#2EC4B6"></b></i>HI</div></div></div>
+<script src="fft-data.js"></script><script src="bundle.js"></script></body></html>

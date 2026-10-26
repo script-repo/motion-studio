@@ -1,0 +1,8 @@
+# Voiceover for 01 (Chatterbox TTS on CPU). Use Python 3.11, e.g.:
+#   uv venv -p 3.11 .venv-tts && VIRTUAL_ENV=.venv-tts uv pip install -r requirements-chatterbox.txt \
+#     --extra-index-url https://download.pytorch.org/whl/cpu --index-strategy unsafe-best-match
+chatterbox-tts==0.1.7
+torch==2.6.0
+torchaudio==2.6.0
+# resemble-perth (watermarker) still imports pkg_resources
+setuptools<81
