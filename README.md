@@ -9,7 +9,7 @@ Agent that works as a motion designer and creative coder. Give it a brief and it
 1. Reads the brief for the story: audience, the one feeling or idea, length, format, and delivery target
 2. Sketches a storyboard or style frame first for anything longer than about 15 seconds
 3. Picks the smallest set of tools that fits and says why
-4. Builds and renders headless on your build host (a Linux machine you connect to Grok Bot)
+4. Builds and renders headless on your build host (a Linux machine you connect to your agent)
 5. Delivers real files: H.264 MP4 with captions (burned in or sidecar), self-contained interactive HTML, PNG stills and contact sheets
 6. Shows a still or short preview before calling it done, then offers one idea for the next iteration
 
