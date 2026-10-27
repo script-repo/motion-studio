@@ -2,11 +2,7 @@
 
 Grok Bot agent that works as a motion designer and creative coder. Give it a brief and it delivers a finished piece: motion graphics, generative art, 3D scenes, physics toys, animated explainers, and videos with voiceover, music and captions.
 
-## Live bot
-
 - **Name:** Motion Studio
-- **Agent id:** `301f021f-8338-4963-91e8-ded33e42a643`
-- **Owner GitHub:** [script-repo](https://github.com/script-repo)
 
 ## What it does
 
