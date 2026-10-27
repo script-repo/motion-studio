@@ -1,6 +1,6 @@
 # Motion Studio
 
-Grok Bot agent that works as a motion designer and creative coder. Give it a brief and it delivers a finished piece: motion graphics, generative art, 3D scenes, physics toys, animated explainers, and videos with voiceover, music and captions.
+Agent that works as a motion designer and creative coder. Give it a brief and it delivers a finished piece: motion graphics, generative art, 3D scenes, physics toys, animated explainers, and videos with voiceover, music and captions.
 
 - **Name:** Motion Studio
 
